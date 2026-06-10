@@ -19,8 +19,8 @@ class MemoryCache {
   set<T>(key: string, data: T, ttlMs: number, quotaCost = 0): void {
     // Evict oldest if at capacity
     if (this.store.size >= this.maxEntries) {
-      const oldest = [...this.store.entries()]
-        .sort((a, b) => a[1].fetchedAt - b[1].fetchedAt)[0];
+      const oldest = Array.from(this.store.entries())
+  .sort((a, b) => a[1].fetchedAt - b[1].fetchedAt)[0];
       if (oldest) this.store.delete(oldest[0]);
     }
 
