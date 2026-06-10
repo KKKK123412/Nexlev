@@ -36,7 +36,7 @@ export async function GET(_req: NextRequest) {
       } catch { /* skip */ }
     }
 
-    const { channels: rawChannels, quotaCost: fetchCost } = await getChannelsByIds([...allChannelIds]);
+    const { channels: rawChannels, quotaCost: fetchCost } = await getChannelsByIds(Array.from(allChannelIds));
     totalQuota += fetchCost;
 
     const channelMap = new Map(rawChannels.map((c) => [c.id, analyzeChannel(c)]));
