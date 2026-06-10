@@ -55,7 +55,7 @@ class MemoryCache {
   }
 
   size(): number {
-    return [...this.store.values()].filter((e) => Date.now() <= e.expiresAt).length;
+    return Array.from(this.store.values()).filter((e) => Date.now() <= e.expiresAt).length;
   }
 
   stats() {
