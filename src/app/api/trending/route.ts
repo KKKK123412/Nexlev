@@ -50,7 +50,7 @@ export async function GET(_req: NextRequest) {
       return scoreNiche(topic, relevant);
     });
 
-    const allAnalyzed = [...channelMap.values()];
+    const allAnalyzed = Array.from(channelMap.values());
     const breakoutChannels = allAnalyzed
       .filter((c) => c.isBreakout)
       .sort((a, b) => b.scores.breakoutScore - a.scores.breakoutScore)
