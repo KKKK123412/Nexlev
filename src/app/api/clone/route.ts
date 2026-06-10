@@ -55,7 +55,7 @@ export async function GET(req: NextRequest) {
     // Remove source channel
     allRelatedIds.delete(sourceRaw.id);
 
-    const { channels: relatedRaw, quotaCost: fetchCost } = await getChannelsByIds([...allRelatedIds]);
+    const { channels: relatedRaw, quotaCost: fetchCost } = await getChannelsByIds(Array.from(allRelatedIds));
     totalQuota += fetchCost;
 
     const relatedAnalyzed = relatedRaw.map(analyzeChannel);
