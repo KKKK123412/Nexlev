@@ -422,12 +422,12 @@ export function analyzeChannel(channel: YTChannel): ChannelAnalysis {
   };
 
   // Collect all signals, deduplicated
-  const allSignals = [...new Set([
-    ...breakoutSignals,
-    ...gemSignals,
-    ...facelessSignals,
-    explanation,
-  ])].slice(0, 6);
+  const allSignals = Array.from(new Set([
+  ...breakoutSignals,
+  ...gemSignals,
+  ...facelessSignals,
+  explanation,
+])).slice(0, 6);
 
   return {
     metrics,
