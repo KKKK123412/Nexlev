@@ -59,7 +59,7 @@ class MemoryCache {
   }
 
   stats() {
-    const entries = [...this.store.entries()];
+    const entries = Array.from(this.store.entries());
     const valid = entries.filter(([, e]) => Date.now() <= e.expiresAt);
     return {
       total: this.store.size,
